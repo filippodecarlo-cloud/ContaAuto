@@ -2,8 +2,12 @@
 let counters = new Array(35).fill(0);
 let sortingEnabled = true;
 
+console.log('Script caricato');
+
 // Carica i dati salvati al caricamento della pagina
 window.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded triggered');
+  
   loadCounters();
   updateBrandTable();
   sortButtonsAlphabetically(); // Ordine alfabetico all'avvio
@@ -18,13 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const sortToggle = document.getElementById('sort-toggle');
   sortToggle.addEventListener('change', (e) => {
     sortingEnabled = e.target.checked;
-    console.log('sortingEnabled:', sortingEnabled);
     localStorage.setItem('sortingEnabled', e.target.checked);
-    if (sortingEnabled) {
-      updateButtonOrder();
-    } else {
-      sortButtonsAlphabetically();
-    }
   });
   
   // Carica lo stato precedente del toggle effetti
@@ -39,6 +37,24 @@ window.addEventListener('DOMContentLoaded', () => {
     sortingEnabled = savedSortingEnabled === 'true';
     sortToggle.checked = sortingEnabled;
   }
+  
+  // Setup del pulsante per ordinamento alfabetico
+  setTimeout(() => {
+    const alphaBtn = document.getElementById('alpha-btn');
+    console.log('Cercando alpha-btn:', alphaBtn);
+    if (alphaBtn) {
+      console.log('alpha-btn trovato, aggiungo listener');
+      alphaBtn.onclick = function(e) {
+        console.log('Pulsante cliccato!');
+        e.preventDefault();
+        e.stopPropagation();
+        sortButtonsAlphabetically();
+        return false;
+      };
+    } else {
+      console.log('alpha-btn NON trovato');
+    }
+  }, 100);
 });
 
 // Crea un AudioContext condiviso
@@ -140,7 +156,8 @@ const incrementCounter = index => {
   counters[index - 1]++;
   updateDisplay(index, counters[index - 1]);
   updateBrandTable();
-  console.log('sortingEnabled:', sortingEnabled);
+  
+  // Riordina solo se sortingEnabled è true
   if (sortingEnabled) {
     updateButtonOrder();
   }
@@ -160,8 +177,6 @@ const resetCounters = () => {
   updateBrandTable();
   if (sortingEnabled) {
     updateButtonOrder();
-  } else {
-    sortButtonsAlphabetically();
   }
   for (let i = 1; i <= 35; i++) {
     updateDisplay(i, 0);
