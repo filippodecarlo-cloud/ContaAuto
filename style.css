@@ -28,6 +28,23 @@ body {
   cursor: pointer;
 }
 
+#alpha-btn {
+  margin-left: 20px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#alpha-btn:hover {
+  background-color: #45a049;
+}
+
 /* Stili per il titolo */
 h1 {
   text-align: center;
@@ -39,10 +56,10 @@ h1 {
 /* Stili per il contenitore dei pulsanti */
 #container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
   justify-items: center;
-  align-items: flex-start;
+  align-items: center;
   max-width: 100%;
   margin: 20px auto;
   padding: 0 10px 20px 10px;
@@ -52,19 +69,20 @@ h1 {
 .car-btn {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  width: 80px;
-  height: 90px;
+  justify-content: center;
+  gap: 5px;
+  width: auto;
+  height: 60px;
   margin: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: 5px;
   background: none;
   background-color: transparent !important;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0;
+  padding: 5px;
 }
 
 .car-btn:hover {
@@ -91,10 +109,10 @@ h1 {
   width: 60px;
   height: 60px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .car-btn span {
-  margin-top: 5px;
   font-size: 16px;
   text-align: center;
   color: white;
@@ -107,6 +125,7 @@ h1 {
   align-items: center;
   justify-content: center;
   padding: 0;
+  flex-shrink: 0;
 }
 
 /* Stili per il pulsante di reset */
