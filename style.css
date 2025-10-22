@@ -1,0 +1,148 @@
+/* Stili generali */
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Stili per i controlli */
+#controls {
+  text-align: center;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+#controls label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+#controls input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Stili per il titolo */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Stili per il contenitore dei pulsanti */
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+/* Stili per i pulsanti */
+.car-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  background-color: transparent !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.car-btn:hover {
+  border: 2px solid #4CAF50;
+}
+
+.car-btn.pulse {
+  animation: pulse-animation 0.3s ease;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.car-btn img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.car-btn span {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Stili per il pulsante di reset */
+#reset-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#reset-btn:hover {
+  background-color: #da190b;
+}
+
+/* Stili per la tabella dei marchi */
+#brand-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#brand-table th,
+#brand-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+#brand-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+#brand-table tr:hover {
+  background-color: #f0f0f0;
+}

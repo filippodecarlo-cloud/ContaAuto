@@ -1,22 +1,43 @@
 // Inizializza i contatori per ogni marca di auto
 let counters = new Array(35).fill(0);
+let sortingEnabled = true;
 
 // Carica i dati salvati al caricamento della pagina
 window.addEventListener('DOMContentLoaded', () => {
   loadCounters();
   updateBrandTable();
-  updateButtonOrder();
+  sortButtonsAlphabetically(); // Ordine alfabetico all'avvio
   
   // Setup del toggle per effetti e suoni
-  const toggle = document.getElementById('effects-toggle');
-  toggle.addEventListener('change', (e) => {
+  const effectsToggle = document.getElementById('effects-toggle');
+  effectsToggle.addEventListener('change', (e) => {
     localStorage.setItem('effectsEnabled', e.target.checked);
   });
   
-  // Carica lo stato precedente del toggle
+  // Setup del toggle per ordinamento
+  const sortToggle = document.getElementById('sort-toggle');
+  sortToggle.addEventListener('change', (e) => {
+    sortingEnabled = e.target.checked;
+    console.log('sortingEnabled:', sortingEnabled);
+    localStorage.setItem('sortingEnabled', e.target.checked);
+    if (sortingEnabled) {
+      updateButtonOrder();
+    } else {
+      sortButtonsAlphabetically();
+    }
+  });
+  
+  // Carica lo stato precedente del toggle effetti
   const effectsEnabled = localStorage.getItem('effectsEnabled');
   if (effectsEnabled !== null) {
-    toggle.checked = effectsEnabled === 'true';
+    effectsToggle.checked = effectsEnabled === 'true';
+  }
+  
+  // Carica lo stato precedente del toggle ordinamento
+  const savedSortingEnabled = localStorage.getItem('sortingEnabled');
+  if (savedSortingEnabled !== null) {
+    sortingEnabled = savedSortingEnabled === 'true';
+    sortToggle.checked = sortingEnabled;
   }
 });
 
@@ -119,7 +140,10 @@ const incrementCounter = index => {
   counters[index - 1]++;
   updateDisplay(index, counters[index - 1]);
   updateBrandTable();
-  updateButtonOrder();
+  console.log('sortingEnabled:', sortingEnabled);
+  if (sortingEnabled) {
+    updateButtonOrder();
+  }
   
   // Effetti visivi e audio
   const button = document.getElementById(`btn${index}`);
@@ -134,7 +158,11 @@ const incrementCounter = index => {
 const resetCounters = () => {
   counters.fill(0);
   updateBrandTable();
-  updateButtonOrder();
+  if (sortingEnabled) {
+    updateButtonOrder();
+  } else {
+    sortButtonsAlphabetically();
+  }
   for (let i = 1; i <= 35; i++) {
     updateDisplay(i, 0);
   }
@@ -228,4 +256,28 @@ const loadCounters = () => {
       updateDisplay(i + 1, counters[i]);
     }
   }
+};
+
+// Funzione per ordinare i pulsanti alfabeticamente
+const sortButtonsAlphabetically = () => {
+  const container = document.getElementById('container');
+  const buttons = Array.from(container.getElementsByClassName('car-btn'));
+  
+  const brands = [
+    'Tesla', 'Mercedes', 'BMW', 'Audi', 'FIAT', 'Porsche', 'Land Rover', 'Jeep',
+    'Renault', 'Peugeot', 'Citroen', 'Alfa Romeo', 'Ferrari', 'Jaguar', 'Lamborghini',
+    'Maserati', 'Mini', 'Toyota', 'Volvo', 'Volkswagen', 'Smart', 'Ford', 'Honda',
+    'Dacia', 'Hyundai', 'Kia', 'Opel', 'Skoda', 'Suzuki', 'Nissan', 'Seat', 'Lancia', 'BYD', 'MG', 'Altro'
+  ];
+  
+  buttons.sort((a, b) => {
+    const indexA = parseInt(a.id.replace('btn', '')) - 1;
+    const indexB = parseInt(b.id.replace('btn', '')) - 1;
+    return brands[indexA].localeCompare(brands[indexB], 'it', { sensitivity: 'base' });
+  });
+  
+  clearContainer(container);
+  buttons.forEach(button => {
+    container.appendChild(button);
+  });
 };
