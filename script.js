@@ -106,7 +106,8 @@ const brandFrequencies = {
   32: 440,   // Lancia - La
   33: 330,   // BYD - Mi
   34: 392,   // MG - Sol
-  35: 220    // Altro - La basso
+  35: 196,   // DR - Sol
+  36: 220    // Altro - La basso
 };
 
 // Funzione per riprodurre un suono
@@ -201,7 +202,7 @@ const updateBrandTable = () => {
     'Tesla', 'Mercedes', 'BMW', 'Audi', 'FIAT', 'Porsche', 'Land Rover', 'Jeep',
     'Renault', 'Peugeot', 'Citroen', 'Alfa Romeo', 'Ferrari', 'Jaguar', 'Lamborghini',
     'Maserati', 'Mini', 'Toyota', 'Volvo', 'Volkswagen', 'Smart', 'Ford', 'Honda',
-    'Dacia', 'Hyundai', 'Kia', 'Opel', 'Skoda', 'Suzuki', 'Nissan', 'Seat', 'Lancia', 'BYD', 'MG', 'Altro'
+    'Dacia', 'Hyundai', 'Kia', 'Opel', 'Skoda', 'Suzuki', 'Nissan', 'Seat', 'Lancia', 'BYD', 'MG', 'DR', 'Altro'
   ];
 
   brands.forEach((brand, index) => {
@@ -282,7 +283,7 @@ const sortButtonsAlphabetically = () => {
     'Tesla', 'Mercedes', 'BMW', 'Audi', 'FIAT', 'Porsche', 'Land Rover', 'Jeep',
     'Renault', 'Peugeot', 'Citroen', 'Alfa Romeo', 'Ferrari', 'Jaguar', 'Lamborghini',
     'Maserati', 'Mini', 'Toyota', 'Volvo', 'Volkswagen', 'Smart', 'Ford', 'Honda',
-    'Dacia', 'Hyundai', 'Kia', 'Opel', 'Skoda', 'Suzuki', 'Nissan', 'Seat', 'Lancia', 'BYD', 'MG', 'Altro'
+    'Dacia', 'Hyundai', 'Kia', 'Opel', 'Skoda', 'Suzuki', 'Nissan', 'Seat', 'Lancia', 'BYD', 'MG', 'DR', 'Altro'
   ];
   
   buttons.sort((a, b) => {
