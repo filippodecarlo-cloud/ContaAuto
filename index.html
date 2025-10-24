@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="App per contare le marche di auto avvistate">
+    <meta name="theme-color" content="#4a9eff">
     <title>Contatore Marche Auto</title>
     <link rel="icon" href="contaauto.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="contaauto.jpeg">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
@@ -222,5 +226,19 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        // Registrazione del Service Worker per PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrato con successo:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Registrazione Service Worker fallita:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
