@@ -1,11 +1,12 @@
-const CACHE_NAME = 'contaauto-v1';
+const CACHE_NAME = 'contaauto-v2';
 const urlsToCache = [
   './',
   './index.html',
   './style.css',
   './script.js',
   './manifest.json',
-  './contaauto.jpeg',
+  './icon-192.png',
+  './icon-512.png',
   './logo_tesla.png',
   './logo_mercedes.png',
   './logo_bmw.png',

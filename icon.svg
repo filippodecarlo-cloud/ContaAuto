@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Sfondo con gradiente -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGradient)" rx="100"/>
+
+  <!-- Sagoma auto (SUV stilizzata) -->
+  <g transform="translate(256, 256)">
+    <!-- Corpo auto -->
+    <path d="M -140 -20 L -120 -60 L -60 -80 L 60 -80 L 120 -60 L 140 -20 L 140 40 L 120 50 L 100 50 L 100 40 L -100 40 L -100 50 L -120 50 L -140 40 Z"
+          fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+
+    <!-- Finestrini -->
+    <path d="M -110 -55 L -65 -70 L -15 -70 L -15 -30 L -110 -30 Z"
+          fill="#93c5fd" opacity="0.7"/>
+    <path d="M 15 -70 L 65 -70 L 110 -55 L 110 -30 L 15 -30 Z"
+          fill="#93c5fd" opacity="0.7"/>
+
+    <!-- Ruote -->
+    <circle cx="-80" cy="50" r="30" fill="#1f2937" stroke="#374151" stroke-width="3"/>
+    <circle cx="-80" cy="50" r="15" fill="#6b7280"/>
+    <circle cx="80" cy="50" r="30" fill="#1f2937" stroke="#374151" stroke-width="3"/>
+    <circle cx="80" cy="50" r="15" fill="#6b7280"/>
+
+    <!-- Dettagli -->
+    <rect x="-5" y="-35" width="10" height="5" fill="#e5e7eb" rx="1"/>
+    <ellipse cx="-130" cy="-10" rx="8" ry="12" fill="#fbbf24" opacity="0.9"/>
+    <ellipse cx="130" cy="-10" rx="8" ry="12" fill="#ef4444" opacity="0.9"/>
+  </g>
+
+  <!-- Badge contatore -->
+  <circle cx="400" cy="112" r="70" fill="#ef4444"/>
+  <circle cx="400" cy="112" r="65" fill="#dc2626"/>
+  <text x="400" y="140" font-family="Arial, sans-serif" font-size="70" font-weight="bold"
+        fill="#ffffff" text-anchor="middle">+</text>
+</svg>

@@ -9,22 +9,16 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "contaauto.jpeg",
-      "sizes": "832x1248",
-      "type": "image/jpeg",
-      "purpose": "any"
-    },
-    {
-      "src": "contaauto.jpeg",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "contaauto.jpeg",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "any"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["entertainment", "utilities"],
