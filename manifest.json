@@ -10,15 +10,21 @@
   "icons": [
     {
       "src": "contaauto.jpeg",
+      "sizes": "832x1248",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "contaauto.jpeg",
       "sizes": "192x192",
       "type": "image/jpeg",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "contaauto.jpeg",
       "sizes": "512x512",
       "type": "image/jpeg",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "categories": ["entertainment", "utilities"],
